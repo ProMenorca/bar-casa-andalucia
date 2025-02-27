@@ -3,6 +3,8 @@
         <h2>¿Quienes somos?</h2>
         <p>Vulputate in elit tincidunt elit scelerisque massa fusce pharetra. Sagittis gravida lacus quisque dictum non pretium suspendisse porttitor. Risus adipiscing semper ornare velit. Sagittis consequat luctus leo arcu. Aenean nunc accumsan id maecenas. Tortor.</p>
     </div>
+    <img class="mobile" src="foto-1.webp" alt="">
+
     <div class="fotos">
         <div class="fotos-arrows">
             <svg class="left-arrow" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=".5" y=".5" width="63" height="63" rx="31.5" stroke="#36392D"/><path fill-rule="evenodd" clip-rule="evenodd" d="M27.108 28.252a.712.712 0 0 1-.086.994l-2.409 2.048h16.69c.385 0 .697.316.697.706 0 .39-.312.706-.698.706H24.613l2.41 2.048c.294.25.333.696.085.994a.692.692 0 0 1-.983.087l-3.866-3.286a.717.717 0 0 1-.248-.426.723.723 0 0 1 .056-.426.706.706 0 0 1 .192-.246l3.866-3.286a.692.692 0 0 1 .983.087Zm-4.875 4.275a.787.787 0 0 0 .02.017l-.02-.017Z" fill="#36392D"/></svg>
@@ -80,6 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <style>
+    .mobile {
+        display: none;
+        margin: auto;
+        object-fit: cover;
+        width: 90%;
+        margin-top: -20px;
+    }
+
     section {
         padding-top: 150px;
         padding-bottom: 100px;
@@ -166,9 +176,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     @media screen and (max-width: 1000px) {
-        .fotos-carrousel img {
-            height: 200px;
-            width: 300px;
+        .fotos {
+            display: none;
+        }
+
+        .mobile {
+            display: block;
         }
     }
 </style>
