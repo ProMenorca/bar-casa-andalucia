@@ -10,6 +10,7 @@
         background-image: url('/background.webp');
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -29,5 +30,17 @@
         margin-top: 0;
         margin-bottom: 0;
         color: #fff;
+    }
+
+    @media screen and (max-width: 950px) {
+        p {
+            font-size: 3rem;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        p {
+            font-size: 2rem;
+        }
     }
 </style>

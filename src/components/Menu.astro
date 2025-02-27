@@ -323,6 +323,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     p {
         width: 600px;
+        max-width: 90%;
         text-align: center;
         line-height: 1.5rem;
         margin-top: 0;
@@ -330,8 +331,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     .options {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
         width: 600px;
+        max-width: 90%;
         margin-top: 10px;
         margin-bottom: 50px;
     }
@@ -395,5 +399,38 @@ document.addEventListener("DOMContentLoaded", function () {
         height: 400px;
         width: 300px;
         margin-bottom: 10px;
+    }
+
+    @media screen and (max-width: 1400px) {
+        .content span {
+            width: 250px;
+        }
+
+        .content img {
+            height: 300px;
+            width: 250px;
+        }
+    }
+
+    @media screen and (max-width: 930px) {
+        .content span {
+            width: 200px;
+        }
+
+        .content img {
+            height: 250px;
+            width: 200px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        svg {
+            display: none !important;
+        }
+
+        .content {
+            overflow-x: scroll;
+            padding-bottom: 20px;
+        }
     }
 </style>

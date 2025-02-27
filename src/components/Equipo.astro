@@ -215,4 +215,42 @@ document.addEventListener("DOMContentLoaded", function () {
     .rol {
         font-weight: 600;
     }
+
+    @media screen and (max-width: 1200px) {
+        .header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+
+        .header p {
+            width: 100%;
+        }
+
+        .header h2 {
+            width: 100%;
+        }
+
+        .equipo img {
+            width: 250px;
+            height: 400px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        svg {
+            display: none;
+        }
+
+        .equipo {
+            gap: 15px;
+            overflow-x: scroll;
+            padding-bottom: 10px;
+        }
+
+        .equipo img {
+            width: 200px;
+            height: 300px;
+        }
+    }
 </style>

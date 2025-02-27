@@ -141,4 +141,34 @@ document.addEventListener("DOMContentLoaded", function () {
         height: 400px;
         width: 600px;
     }
+
+    @media screen and (max-width: 1400px) {
+        .fotos-carrousel img {
+            height: 300px;
+            width: 400px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+
+        .header p {
+            width: 100%;
+        }
+
+        .header h2 {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        .fotos-carrousel img {
+            height: 200px;
+            width: 300px;
+        }
+    }
 </style>
