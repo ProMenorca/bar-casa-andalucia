@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+	<Header />
+    <section>
+        <h1>Reservar</h1>
+        <p>Vulputate in elit tincidunt elit scelerisque massa fusce pharetra. Sagittis gravida lacus quisque dictum non pretium suspendisse porttitor. Risus adipiscing semper ornare velit. Sagittis consequat luctus leo arcu. Aenean nunc accumsan id maecenas. Tortor.</p>
+        <span><a href="tel:+34 123 456 789">+34 123 456 789</a></span>
+    </section>
+	<Footer />
+</Layout>
+
+<style>
+    section {
+        min-height: calc(100vh - 510px);
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 200px;
+        color: #36392D;
+        font-weight: 800;
+        width: 100%;
+        text-align: center;
+    }
+
+    p {
+        width: 600px;
+        margin: auto;
+        text-align: center;
+        line-height: 1.5rem;
+        margin-top: 0;
+    }
+
+    span {
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 10px 20px;
+        background-color: #36392D;
+        color: white;
+        border-radius: 20px;
+        display: block;
+        margin: auto;
+        width: fit-content;
+        margin-top: 30px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    span a {
+        color: white;
+        text-decoration: none;
+    }
+
+    span:hover {
+        padding: 10px 25px;
+    }
+</style>

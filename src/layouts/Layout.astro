@@ -1,16 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Prototipo 1</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+	font-family: 'Bitter', serif;
+}
+
+p, span {
+	color: #36392D;
+}
+
+</style>
 
 <style>
 	html,
@@ -18,5 +32,13 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		background-color: #CFD2C6;
+		scroll-behavior: smooth;
+	}
+
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
 	}
 </style>

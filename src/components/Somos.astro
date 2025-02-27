@@ -1,0 +1,144 @@
+<section>
+    <div class="header">
+        <h2>¿Quienes somos?</h2>
+        <p>Vulputate in elit tincidunt elit scelerisque massa fusce pharetra. Sagittis gravida lacus quisque dictum non pretium suspendisse porttitor. Risus adipiscing semper ornare velit. Sagittis consequat luctus leo arcu. Aenean nunc accumsan id maecenas. Tortor.</p>
+    </div>
+    <div class="fotos">
+        <div class="fotos-arrows">
+            <svg class="left-arrow" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=".5" y=".5" width="63" height="63" rx="31.5" stroke="#36392D"/><path fill-rule="evenodd" clip-rule="evenodd" d="M27.108 28.252a.712.712 0 0 1-.086.994l-2.409 2.048h16.69c.385 0 .697.316.697.706 0 .39-.312.706-.698.706H24.613l2.41 2.048c.294.25.333.696.085.994a.692.692 0 0 1-.983.087l-3.866-3.286a.717.717 0 0 1-.248-.426.723.723 0 0 1 .056-.426.706.706 0 0 1 .192-.246l3.866-3.286a.692.692 0 0 1 .983.087Zm-4.875 4.275a.787.787 0 0 0 .02.017l-.02-.017Z" fill="#36392D"/></svg>
+
+            <svg class="right-arrow" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=".5" y=".5" width="63" height="63" rx="31.5" stroke="#36392D"/><path fill-rule="evenodd" clip-rule="evenodd" d="M27.108 28.252a.712.712 0 0 1-.086.994l-2.409 2.048h16.69c.385 0 .697.316.697.706 0 .39-.312.706-.698.706H24.613l2.41 2.048c.294.25.333.696.085.994a.692.692 0 0 1-.983.087l-3.866-3.286a.717.717 0 0 1-.248-.426.723.723 0 0 1 .056-.426.706.706 0 0 1 .192-.246l3.866-3.286a.692.692 0 0 1 .983.087Zm-4.875 4.275a.787.787 0 0 0 .02.017l-.02-.017Z" fill="#36392D"/></svg>
+        </div>
+        <div class="fotos-carrousel">
+            <img src="/foto-1.webp" alt="Foto 1">
+            <img src="/foto-2.webp" alt="Foto 2">
+            <img src="/foto-3.webp" alt="Foto 3">
+            <img src="/foto-4.webp" alt="Foto 4">  
+            <img src="/foto-1.webp" alt="Foto 1">
+            <img src="/foto-2.webp" alt="Foto 2">
+            <img src="/foto-3.webp" alt="Foto 3">
+            <img src="/foto-4.webp" alt="Foto 4">    
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".fotos-carrousel") as HTMLElement;
+    const images = Array.from(carousel.children) as HTMLElement[];
+    const imageWidth = images[0].offsetWidth + 20; // Ancho de la imagen + gap
+    let interval: number;
+    let userInteracted = false;
+
+    function moveCarousel(forward: boolean = true): void {
+        carousel.style.transition = "transform 0.5s ease-in-out";
+        carousel.style.transform = `translateX(${forward ? '-' : ''}${imageWidth}px)`;
+
+        setTimeout(() => {
+            carousel.style.transition = "none";
+            if (forward) {
+                carousel.appendChild(images[0]);
+                images.push(images.shift()!);
+            } else {
+                carousel.prepend(images[images.length - 1]);
+                images.unshift(images.pop()!);
+            }
+            carousel.style.transform = "translateX(0)";
+        }, 500);
+    }
+
+    function startAutoSlide(): void {
+        if (!userInteracted) {
+            interval = window.setInterval(() => moveCarousel(true), 3000);
+        }
+    }
+
+    function stopAutoSlide(): void {
+        clearInterval(interval);
+    }
+
+    // Iniciar el carrusel automático
+    startAutoSlide();
+
+    // Detener el carrusel si el usuario pasa el ratón sobre él
+    carousel.addEventListener("mouseenter", stopAutoSlide);
+    carousel.addEventListener("mouseleave", startAutoSlide);
+
+    // Agregar funcionalidad a las flechas y detener el auto-slide al hacer clic
+    const leftArrow = document.querySelector(".left-arrow");
+    const rightArrow = document.querySelector(".right-arrow");
+
+    function userClickHandler(forward: boolean): void {
+        userInteracted = true;
+        stopAutoSlide();
+        moveCarousel(forward);
+    }
+
+    leftArrow?.addEventListener("click", () => userClickHandler(false));
+    rightArrow?.addEventListener("click", () => userClickHandler(true));
+});
+</script>
+
+<style>
+    section {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+
+    .header {
+        width: 90%;
+        margin: auto;
+        max-width: 1500px;
+
+        display: flex;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 100px;
+    }
+
+    .header h2 {
+        font-size: 3rem;
+        margin-right: 20px;
+        color: #36392D;
+        font-weight: 800;
+        width: 50%;
+        margin-top: 0;
+    }
+
+    .header p {
+        width: 500px;
+        line-height: 1.4rem;
+        margin-top: 0;
+    }
+
+    .fotos-arrows {
+        width: 90%;
+        margin: auto;
+        max-width: 1500px;
+
+        display: flex;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .right-arrow {
+        transform: rotate(180deg);
+    }
+
+    svg {
+        cursor: pointer;
+    }
+
+    .fotos-carrousel {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        gap: 20px;
+    }
+
+    .fotos-carrousel img {
+        object-fit: cover;
+        height: 400px;
+        width: 600px;
+    }
+</style>

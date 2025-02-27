@@ -1,0 +1,218 @@
+<div class="container">
+    <section id="equipo">
+        <div class="header">
+            <h2>Nuesto equipo</h2>
+            <p>In velit auctor non auctor in. Id pellentesque facilisis at lectus sed in sit tellus mauris.</p>
+        </div>
+        <svg class="left-arrow" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=".5" y=".5" width="63" height="63" rx="31.5" stroke="#36392D"/><path fill-rule="evenodd" clip-rule="evenodd" d="M27.108 28.252a.712.712 0 0 1-.086.994l-2.409 2.048h16.69c.385 0 .697.316.697.706 0 .39-.312.706-.698.706H24.613l2.41 2.048c.294.25.333.696.085.994a.692.692 0 0 1-.983.087l-3.866-3.286a.717.717 0 0 1-.248-.426.723.723 0 0 1 .056-.426.706.706 0 0 1 .192-.246l3.866-3.286a.692.692 0 0 1 .983.087Zm-4.875 4.275a.787.787 0 0 0 .02.017l-.02-.017Z" fill="#36392D"/></svg>
+        <svg class="right-arrow" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x=".5" y=".5" width="63" height="63" rx="31.5" stroke="#36392D"/><path fill-rule="evenodd" clip-rule="evenodd" d="M27.108 28.252a.712.712 0 0 1-.086.994l-2.409 2.048h16.69c.385 0 .697.316.697.706 0 .39-.312.706-.698.706H24.613l2.41 2.048c.294.25.333.696.085.994a.692.692 0 0 1-.983.087l-3.866-3.286a.717.717 0 0 1-.248-.426.723.723 0 0 1 .056-.426.706.706 0 0 1 .192-.246l3.866-3.286a.692.692 0 0 1 .983.087Zm-4.875 4.275a.787.787 0 0 0 .02.017l-.02-.017Z" fill="#36392D"/></svg>
+        <div class="equipo-container">
+            <div class="equipo">
+                <div>
+                    <img src="public/persona-1.webp" alt="">
+                    <p class="name">Johathan Demario</p>
+                    <p class="rol">Founder</p>
+                    <p class="description">In velit auctor non auctor in. Id pellentesque facilisis at lectus sed in sit tellus mauris.</p>
+                </div>
+                <div>
+                    <img src="public/persona-2.webp" alt="">
+                    <p class="name">Bryan Machado</p>
+                    <p class="rol">Chef</p>
+                    <p class="description">Duis sed ut dolor viverra porttitor semper et faucibus facilisis. Hac maecenas rhoncus.</p>
+                </div>
+                <div>
+                    <img src="public/persona-3.webp" alt="">
+                    <p class="name">Adam Joseph</p>
+                    <p class="rol">Chef</p>
+                    <p class="description">In velit auctor non auctor in. Id pellentesque facilisis at lectus sed in sit tellus mauris.</p>
+                </div>
+                <div>
+                    <img src="public/persona-4.webp" alt="">
+                    <p class="name">Johathan Demario</p>
+                    <p class="rol">Chef</p>
+                    <p class="description">Molestie viverra mattis nisl vitae orci feugiat in. Aliquet quis orci turpis aliquet.</p>
+                </div>
+                <div>
+                    <img src="public/persona-5.webp" alt="">
+                    <p class="name">Bryan Machado</p>
+                    <p class="rol">Chef</p>
+                    <p class="description">In velit auctor non auctor in. Id pellentesque facilisis at lectus sed in sit tellus mauris.</p>
+                </div>
+                <div>
+                    <img src="public/persona-6.webp" alt="">
+                    <p class="name">Adam Joseph</p>
+                    <p class="rol">Chef</p>
+                    <p class="description">Duis sed ut dolor viverra porttitor semper et faucibus facilisis. Hac maecenas rhoncus.</p>
+                </div>
+            </div>    
+        </div>
+    </section>    
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleccionar elementos
+    const equipo = document.querySelector(".equipo") as HTMLElement;
+    const leftArrowSvg = document.querySelector(".left-arrow") as SVGElement;
+    const rightArrowSvg = document.querySelector(".right-arrow") as SVGElement;
+    
+    // Envolver los SVG en divs que actúen como botones para mejorar la clickabilidad
+    if (leftArrowSvg && leftArrowSvg.parentNode) {
+        const leftButton = document.createElement('div');
+        leftButton.className = 'arrow-button left-button';
+        leftButton.style.cursor = 'pointer';
+        leftButton.style.position = 'relative';
+        leftButton.style.zIndex = '10';
+        leftArrowSvg.parentNode.insertBefore(leftButton, leftArrowSvg);
+        leftButton.appendChild(leftArrowSvg);
+        
+        // Registrar el evento en el div contenedor
+        leftButton.addEventListener("click", function() {
+            console.log("Flecha izquierda clickeada");
+            moveCarousel(false);
+        });
+    }
+    
+    if (rightArrowSvg && rightArrowSvg.parentNode) {
+        const rightButton = document.createElement('div');
+        rightButton.className = 'arrow-button right-button';
+        rightButton.style.cursor = 'pointer';
+        rightButton.style.position = 'relative';
+        rightButton.style.zIndex = '10';
+        rightArrowSvg.parentNode.insertBefore(rightButton, rightArrowSvg);
+        rightButton.appendChild(rightArrowSvg);
+        
+        // Registrar el evento en el div contenedor
+        rightButton.addEventListener("click", function() {
+            console.log("Flecha derecha clickeada");
+            moveCarousel(true);
+        });
+    }
+    
+    function moveCarousel(forward: boolean): void {
+        if (!equipo) return;
+        
+        const items = equipo.querySelectorAll("div");
+        if (items.length === 0) return;
+        
+        const itemWidth = (items[0] as HTMLElement).offsetWidth + 40;
+        
+        if (forward) {
+            equipo.style.transition = "transform 0.5s ease-in-out";
+            equipo.style.transform = `translateX(-${itemWidth}px)`;
+            
+            setTimeout(() => {
+                equipo.style.transition = "none";
+                const firstChild = equipo.firstElementChild;
+                if (firstChild) {
+                    equipo.appendChild(firstChild);
+                }
+                equipo.style.transform = "translateX(0)";
+            }, 500);
+        } else {
+            const lastChild = equipo.lastElementChild;
+            if (lastChild) {
+                equipo.style.transition = "none";
+                equipo.prepend(lastChild);
+                equipo.style.transform = `translateX(-${itemWidth}px)`;
+                
+                void equipo.offsetHeight;
+                
+                equipo.style.transition = "transform 0.5s ease-in-out";
+                equipo.style.transform = "translateX(0)";
+            }
+        }
+    }
+    
+    // También podemos intentar con eventos de mouse down en lugar de click
+    document.addEventListener('mousedown', function(event) {
+        const target = event.target as Element;
+        
+        // Verificar si el clic fue en alguna parte de las flechas o sus contenedores
+        if (target.closest('.left-arrow') || target.closest('.left-button')) {
+            console.log('Mousedown en flecha izquierda detectado');
+            moveCarousel(false);
+        } else if (target.closest('.right-arrow') || target.closest('.right-button')) {
+            console.log('Mousedown en flecha derecha detectado');
+            moveCarousel(true);
+        }
+    });
+});
+</script>
+
+<style>
+    .container {
+        background-color: #B7BCA9;
+        padding: 150px 0 70px 0;
+    }
+
+    section {
+        width: 90%;
+        margin: auto;
+        max-width: 1500px;
+    }
+
+    .header {
+        display: flex;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 100px;
+    }
+
+    .header h2 {
+        font-size: 3rem;
+        margin-right: 20px;
+        color: #36392D;
+        font-weight: 800;
+        width: 50%;
+        margin-top: 0;
+    }
+
+    .header p {
+        width: 500px;
+        line-height: 1.4rem;
+        margin-top: 0;
+    }
+
+    svg {
+        cursor: pointer;
+        position: relative;
+        z-index: 100;
+    }
+
+    .right-arrow {
+        transform: rotate(180deg);
+        margin-left: 20px;
+    }
+
+    .equipo-container {
+        overflow: hidden;
+    }
+
+    .equipo {
+        display: flex;
+        margin-top: 20px;
+        gap: 30px;
+        overflow: hidden;
+    }
+
+    .equipo div {
+        text-align: center;
+        margin: auto;
+    }
+
+    .equipo img {
+        width: 350px;
+        height: 550px;
+        object-fit: cover;
+    }
+
+    .name {
+        font-weight: 800;
+        font-size: 1.3rem;
+    }
+
+    .rol {
+        font-weight: 600;
+    }
+</style>
