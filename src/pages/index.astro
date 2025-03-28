@@ -14,5 +14,30 @@ import Footer from '../components/Footer.astro';
 	<Somos />
 	<Menu />
 	<Equipo />
+	<section class="map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.4537777066234!2d4.259741828086427!3d39.88647151411761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12958799dedfc2bd%3A0xa13cf81df98e7ac7!2sCasa%20de%20Andaluc%C3%ADa%20Menorca!5e0!3m2!1ses!2ses!4v1743171471203!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</section>
 	<Footer />
 </Layout>
+
+<style>
+	.map {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #B7BCA9;
+		padding-bottom: 100px;
+		border-top: 2px solid #56584f41;
+	}
+
+	iframe {
+		width: 800px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		height: 400px;
+		margin-top: 50px;
+		max-width: 95%;
+	}
+</style>

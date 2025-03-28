@@ -8,15 +8,16 @@ import Footer from '../components/Footer.astro';
 	<Header />
     <section>
         <h1>Reservar</h1>
-        <p>Vulputate in elit tincidunt elit scelerisque massa fusce pharetra. Sagittis gravida lacus quisque dictum non pretium suspendisse porttitor. Risus adipiscing semper ornare velit. Sagittis consequat luctus leo arcu. Aenean nunc accumsan id maecenas. Tortor.</p>
-        <span><a href="tel:+34 123 456 789">+34 123 456 789</a></span>
-    </section>
+        <p>¿Quieres asegurarte un sitio en Casa de Andalucía? Reserva tu mesa con antelación y disfruta de nuestro ambiente único, buen trato y las mejores noches de música en vivo. Llámanos y te guardamos tu lugar.</p>
+        <span><a href="tel:+34 611 54 91 39">+34 611 54 91 39</a></span>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.4537777066234!2d4.259741828086427!3d39.88647151411761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12958799dedfc2bd%3A0xa13cf81df98e7ac7!2sCasa%20de%20Andaluc%C3%ADa%20Menorca!5e0!3m2!1ses!2ses!4v1743171471203!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></section>
 	<Footer />
 </Layout>
 
 <style>
     section {
         min-height: calc(100vh - 510px);
+        margin-bottom: 100px;
     }
 
     h1 {
@@ -51,6 +52,7 @@ import Footer from '../components/Footer.astro';
         margin-top: 30px;
         cursor: pointer;
         transition: all 0.2s;
+        margin-bottom: -20px;
     }
 
     span a {
@@ -61,4 +63,16 @@ import Footer from '../components/Footer.astro';
     span:hover {
         padding: 10px 25px;
     }
+
+    iframe {
+        width: 800px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        height: 400px;
+        margin-top: 50px;
+        max-width: 95%;
+    }
+
 </style>
